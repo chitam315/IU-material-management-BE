@@ -38,6 +38,7 @@ async function handleSendMessage(message,wss,connection){
 
 
 function runServerChat(serverApp) {
+    console.log('server chat run');
     const wss = new WebSocketServer({ server: serverApp })
 
     wss.on('connection', (connection, req) => {
