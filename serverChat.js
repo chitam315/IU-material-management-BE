@@ -42,6 +42,7 @@ function runServerChat(serverApp) {
     const wss = new WebSocketServer({ server: serverApp })
 
     wss.on('connection', (connection, req) => {
+        console.log('+1 connection');
 
         handleOnlinePeople(wss,connection,req)
 
