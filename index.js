@@ -9,14 +9,10 @@ import {catchError} from './app/middlewares/error.js'
 import runServerChat from "./serverChat.js";
 
 const app = express();
-const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-  credentials: true
-  
-}
 
-app.use(express.text());
+app.use(cors());
+
+// app.use(express.text());
 app.use(express.json());
 
 Mongo.connect()
