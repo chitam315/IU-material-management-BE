@@ -100,19 +100,19 @@ class AuthController {
 
   // [GET] /al-user-id
   getAllUserId = catchAsync(async (req, res, next) => {
-    try {
+    // try {
       const allUser = await User.find({}, '_id username fullName role')
       allUser.splice(0, 1)
       res.status(200).json({
         success: true,
         allUser
       })
-    } catch (error) {
-      res.status(400).json({
-        success: false,
-        error: error.message
-      })
-    }
+    // } catch (error) {
+    //   res.status(400).json({
+    //     success: false,
+    //     error: error.message
+    //   })
+    // }
 
   })
 
