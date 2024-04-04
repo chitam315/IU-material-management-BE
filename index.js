@@ -2,6 +2,8 @@
 import express from "express";
 import { createServer } from 'http'
 import cors from 'cors'
+import fs from 'fs'
+import https from 'https'
 
 import router from "./routes/index.js";
 import Mongo from "./config/db/index.js";
@@ -11,7 +13,12 @@ import runServerChat from "./serverChat.js";
 
 const app = express();
 
-const server = createServer(app);
+// const server = createServer(app);
+const server = https.createServer({
+  key: fs.readFileSync("server.key"),
+  cert: fs.readFileSync("server.cert"),
+},
+app)
 
 app.use(cors());
 
