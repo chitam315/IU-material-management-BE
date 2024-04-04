@@ -12,9 +12,7 @@ function router(app) {
   app.use("/thesis",thesisRouter)
   app.use("/announcement",announcementRouter)
   app.use("/message",messageRouter)
-  app.get('/',(req,res,next) => {
-    res.json('My API is running')
-  })
+  app.get('/',(req,res,next) => res.json('My API is running') )
 }
 
 export default router;
