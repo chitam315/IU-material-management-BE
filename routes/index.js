@@ -13,9 +13,7 @@ function router(app) {
   app.use("/announcement",announcementRouter)
   app.use("/message",messageRouter)
   app.get('/',(req,res,next) => {
-    res.status(200).json({
-      success: true
-    })
+    res.json('My API is running')
   })
 }
 
