@@ -13,14 +13,17 @@ import runServerChat from "./serverChat.js";
 
 const app = express();
 
-// const server = createServer(app);
+const serverHttp = createServer(app);
 const server = https.createServer({
-  key: fs.readFileSync("server.key"),
-  cert: fs.readFileSync("server.cert"),
+  key: fs.readFileSync("server2.key"),
+  cert: fs.readFileSync("server2.crt"),
 },
 app)
 
+
 app.use(cors());
+
+app.enable('trust proxy');
 
 // app.use(express.text());
 app.use(express.json());
@@ -30,11 +33,11 @@ Mongo.connect()
 router(app);
 app.use(catchError)
 runServerChat(server)
-// const server = app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
-server.listen(PORT, () => {
+
+server.listen(4000, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// runServerChat(server)
+serverHttp.listen(PORT, () => {
+  console.log(`ServerHttp is running on port ${PORT}`);
+});
