@@ -32,11 +32,11 @@ Mongo.connect()
 
 router(app);
 app.use(catchError)
-runServerChat(server)
+runServerChat(serverHttp)
 
-server.listen(4000, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// server.listen(4000, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
 
 serverHttp.listen(PORT, () => {
   console.log(`ServerHttp is running on port ${PORT}`);
